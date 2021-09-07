@@ -35,6 +35,7 @@ tmp/
 *~.nib
 local.properties
 .settings/
+Servers/
 .loadpath
 .recommenders
 
