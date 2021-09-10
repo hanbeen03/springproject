@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 상단의 스키마는 마이바티스로 인터페이스 파일을 구현하기 위해 적어줘야 하는 스키마입니다.
+하단에 mapper 태그 내부에 어떤 인터페이스를 여기에 구현할지 적어줍니다. -->
+<mapper namespace="org.ict.mapper.TimeMapper">
+
+	<select id="getTime2" resultType="string">
+		SELECT SYSDATE FROM DUAL
+	</select>
+
+	<select id="getTime3" resultType="string">
+		SELECT SYSDATE FROM DUAL
+	</select>
+	
+</mapper>
