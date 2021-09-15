@@ -14,9 +14,12 @@
 		<!-- <이나 >과 같이 태그로 오인될 수 있는 문자를 포함하는
 		쿼리문은 그냥 작성하지 않고, CDATA를 이용합니다. 
 		CDATA내부에 작성하면 내부의 부등호는 전부 문자로 간주됩니다. -->
+		<!--
 		<![CDATA[
 		SELECT * FROM board_tbl WHERE bno <= 3
 		]]>
+		-->
+		SELECT * FROM board_tbl ORDER BY bno ASC
 	</select>
 	
 	<!-- 현재 insert는 Board를 파라미터로 받고 있습니다.
@@ -31,4 +34,14 @@
 	<select id="select" resultType="org.ict.domain.BoardVO">
 		SELECT * FROM board_tbl WHERE bno = #{bno}
 	</select>
+	
+	<delete id="delete">
+		DELETE FROM board_tbl WHERE bno = #{bno}
+	</delete>
+	
+	<update id="update">
+		<![CDATA[
+		UPDATE board_tbl SET title=#{title}, content=#{content}, writer=#{writer}, updatedate=SYSDATE WHERE bno = #{bno}
+		]]>	
+	</update>
 </mapper>

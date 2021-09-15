@@ -45,9 +45,26 @@ public class BoardMapperTests {
 		
 	}
 	
-	@Test
+	//@Test
 	public void selectTest() {
 		boardMapper.select(4L);
+	}
+	
+	//@Test
+	public void deleteTest() {
+		boardMapper.delete(3L);
+	}
+	
+	@Test
+	public void updateTest() {
+		BoardVO vo = new BoardVO();
+		
+		vo.setBno(4L);
+		vo.setTitle("Update Test");
+		vo.setContent("This is a Update Test1");
+		vo.setWriter("Unknown");
+		
+		boardMapper.update(vo);
 	}
 	
 }
