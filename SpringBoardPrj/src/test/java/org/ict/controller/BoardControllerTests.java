@@ -41,7 +41,7 @@ public class BoardControllerTests {
 				webAppContextSetup(ctx).build();
 	}
 	
-	@Test
+	//@Test
 	public void testList() throws Exception {
 		log.info(
 			// .get(접속주소)/.post(접속주소) 를 제외한 나머지는
@@ -57,5 +57,26 @@ public class BoardControllerTests {
 			.getModelAndView()
 			.getModelMap()
 			);
+	}
+	
+	//@Test
+	public void testRegister() throws Exception {
+		
+		String resultPage = mockMvc.perform(
+			MockMvcRequestBuilders.post("/board/register")
+				.param("title", "테스트코드제목")
+				.param("content", "테스트코드본문")
+				.param("writer", "테스트코드글쓴이")
+				).andReturn().getModelAndView().getViewName();
+		
+		log.info(resultPage);
+	}
+	
+	@Test
+	public void testGet() throws Exception {
+		mockMvc.perform(
+				MockMvcRequestBuilders.get("/board/get")
+				.param("bno", "13")
+				).andReturn().getModelAndView().getViewName();
 	}
 }

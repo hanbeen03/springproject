@@ -19,7 +19,7 @@
 		SELECT * FROM board_tbl WHERE bno <= 3
 		]]>
 		-->
-		SELECT * FROM board_tbl ORDER BY bno ASC
+		SELECT * FROM board_tbl ORDER BY bno DESC
 	</select>
 	
 	<!-- 현재 insert는 Board를 파라미터로 받고 있습니다.
