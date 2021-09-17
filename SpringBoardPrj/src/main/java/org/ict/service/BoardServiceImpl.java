@@ -26,7 +26,8 @@ public class BoardServiceImpl implements BoardService {
 	public void register(BoardVO vo) {
 		
 		log.info("등록 작업 실행");
-		mapper.insert(vo);
+		// mapper.insert(vo); 에서 bno를 얻기위해 변경
+		mapper.insertSelectKey(vo);
 		
 	}
 
@@ -55,9 +56,9 @@ public class BoardServiceImpl implements BoardService {
 	//등록해서 구현해주시면 됩니다.
 	//추가로 테스트도 진행해주세요.
 	@Override
-	public List<BoardVO> getList() {
+	public List<BoardVO> getList(String keyword) {
 		log.info("전체 글 가져오기 실행 중");
-		return mapper.getList();
+		return mapper.getList(keyword);
 	}
 
 	
