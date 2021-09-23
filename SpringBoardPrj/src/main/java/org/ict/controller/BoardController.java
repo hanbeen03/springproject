@@ -65,6 +65,7 @@ public class BoardController {
 		//일반 이동이 아닌 redirect 이동시는 데이터가 소실됩니다.
 		//이를 막기 위해 rttr.addFlashAttribute로 대체합니다.
 		rttr.addFlashAttribute("getBno", vo.getBno());
+		rttr.addFlashAttribute("result", "register");
 		
 		// view폴더 하위 board 폴더의 list.jsp 출력
 		return "redirect:/board/list";

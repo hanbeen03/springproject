@@ -51,21 +51,68 @@
 		<input type="submit" value="검색"/>
 	</form>
 	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+	
+	 
+	<div class="modal" id="myModal" tabindex="-1">
+ 	   <div class="modal-dialog">
+   		 <div class="modal-content">
+     		 <div class="modal-header">
+        		<h5 class="modal-title">${result}</h5>
+        	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     	 </div>
+      	<div class="modal-body">
+     	   <p>${getBno}번 글이 등록되었습니다.</p>
+      	</div>
+      	<div class="modal-footer">
+        	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+     	 </div>
+   	 </div>
+  	</div>
+	</div>
+	
+	
+	<!-- 
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+-->
 	
 	<script>
 		var result = "${result}";
 		var bno = "${bno}";
 		var getBno = "${getBno}";
+		//var myModal = document.getElementById('myModal');
+		//var myInput = document.getElementById('myInput');
+		var myModal = new bootstrap.Modal(document.getElementById('myModal'), focus);
 		console.log(result);
 		
 		window.onload = function() {
 			if(result === 'success') {
 				alert(bno + '번 글이 삭제되었습니다.');
+			} else if(result === 'register') {
+				//alert(getBno + '번 글 작성 완료');
+				myModal.show();
 			}
-			if(getBno != null) {
-				alert(getBno + '번 글이 등록되었습니다.');
-			}
+			//if(getBno != "") {
+			//	alert(getBno + '번 글이 등록되었습니다.');
+			//}
 		}
+		
 	</script>
 </body>
 </html>
